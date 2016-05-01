@@ -1,0 +1,11 @@
+build*
+manifest.mf
+nbproject
+dist/BillPal.html
+dist/BillPal.jnlp
+dist/web-files
+dist/bundles/BillPal-1.0.pkg
+dist/bundles/BillPal.app
+dist/bundles/BillPal.html
+dist/bundles/BillPal.jnlp
+dist/bundles/BillPal.jar
