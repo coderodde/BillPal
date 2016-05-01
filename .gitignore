@@ -1,4 +1,4 @@
-build*
+build
 dist/BillPal.html
 dist/BillPal.jnlp
 dist/web-files
