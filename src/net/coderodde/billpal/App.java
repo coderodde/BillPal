@@ -30,6 +30,7 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
@@ -121,7 +122,7 @@ public class App extends Application {
         
         tableColumnExpirationDate.setStyle("-fx-font-weight: bold;");
         
-        //setTableColumnCellValueFactories();
+        setTableColumnCellValueFactories();
 
         setColumnCellFactories();
         setCellEditEventHandlers();
@@ -1027,5 +1028,73 @@ public class App extends Application {
     private void setCommentColumnCellFactory() {
         tableColumnComment.setCellFactory(
             TextFieldTableCell.<Bill>forTableColumn());
+    }
+    
+    private void setAmountTableColumnCellValueFactory() {
+        tableColumnAmount.setCellValueFactory(
+                new PropertyValueFactory<>("amount")
+        );
+    }
+    
+    private void setDateReceivedTableColumnCellValueFactory() {
+        tableColumnDateReceived.setCellValueFactory(
+                new PropertyValueFactory<>("dateReceived")
+        );
+    }
+    
+    private void setExpirationDateTableColumnCellValueFactory() {
+        tableColumnExpirationDate.setCellValueFactory(
+                new PropertyValueFactory<>("expirationDate")
+        );
+    }
+    
+    private void setPaymentDateTableColumnCellValueFactory() {
+        tableColumnPaymentDate.setCellValueFactory(
+                new PropertyValueFactory<>("paymentDate")
+        );
+    }
+    
+    private void setReceiverTableColumnCellValueFactory() {
+        tableColumnReceiver.setCellValueFactory(
+                new PropertyValueFactory<>("receiver")
+        );
+    }
+    
+    private void setReceiverIbanTableColumnCellValueFactory() {
+        tableColumnReceiverIban.setCellValueFactory(
+                new PropertyValueFactory<>("receiverIban")
+        );
+    }
+    
+    private void setReferenceNumberTableColumnCellValueFactory() {
+        tableColumnReferenceNumber.setCellValueFactory(
+                new PropertyValueFactory<>("referenceNumber")
+        );
+    }
+    
+    private void setBillNumberTableColumnCellValueFactory() {
+        tableColumnBillNumber.setCellValueFactory(
+                new PropertyValueFactory<>("billNumber")
+        );
+    }
+    
+    private void setCommentTableColumnCellValueFactory() {
+        tableColumnComment.setCellValueFactory(
+                new PropertyValueFactory<>("comment")
+        );
+    }
+    
+    private void setTableColumnCellValueFactories() {
+        setAmountTableColumnCellValueFactory();
+        setDateReceivedTableColumnCellValueFactory();
+        setExpirationDateTableColumnCellValueFactory();
+        
+        setPaymentDateTableColumnCellValueFactory();
+        setReceiverTableColumnCellValueFactory();
+        setReceiverIbanTableColumnCellValueFactory();
+        
+        setReferenceNumberTableColumnCellValueFactory();
+        setBillNumberTableColumnCellValueFactory();
+        setCommentTableColumnCellValueFactory();
     }
 }
