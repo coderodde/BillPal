@@ -2,6 +2,8 @@ package net.coderodde.billpal;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -12,7 +14,13 @@ class ExpirationDateCellFactory implements Callback<TableColumn<Bill, Date>,
     
     private static final long MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
     private static final long MILLISECONDS_PER_WEEK = 7 * MILLISECONDS_PER_DAY;
+    private final ObservableList<Bill> billList;
 
+    public ExpirationDateCellFactory(final ObservableList<Bill> billList) {
+        this.billList = Objects.requireNonNull(billList,    
+                                               "The bill list is null.");
+    }
+    
     @Override
     public TableCell<Bill, Date> call(TableColumn<Bill, Date> column) {
         TextFieldTableCell<Bill, Date> cell = 

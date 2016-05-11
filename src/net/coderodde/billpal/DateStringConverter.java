@@ -1,7 +1,6 @@
 package net.coderodde.billpal;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
@@ -10,6 +9,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.util.StringConverter;
+import static net.coderodde.billpal.Config.DATE_FORMAT;
 
 /**
  * This class is responsible for converting between double values and dates.
@@ -19,9 +19,6 @@ import javafx.util.StringConverter;
  */
 public class DateStringConverter extends StringConverter<Date> {
 
-    private static final String DATE_FORMAT_STRING = "yyyy.MM.dd";
-    private static final SimpleDateFormat DATE_FORMAT =
-                     new SimpleDateFormat(DATE_FORMAT_STRING);
     private boolean formatGotIt;
     
     @Override

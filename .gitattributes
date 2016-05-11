@@ -1,0 +1,2 @@
+dist/bundles/BillPal-1.6.exe filter=lfs diff=lfs merge=lfs -text
+dist/bundles/BillPal-1.6.dmg filter=lfs diff=lfs merge=lfs -text

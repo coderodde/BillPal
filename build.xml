@@ -67,7 +67,7 @@
                    vendor="${application.vendor}"/>
         </fx:deploy>
     </target>
-    
+   
     <target name="-pre-init">
         <property name="project.name" value="BillPal" />
         <property name="version.num" value="1.6" />

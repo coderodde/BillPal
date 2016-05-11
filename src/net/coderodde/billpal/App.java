@@ -250,7 +250,7 @@ public class App extends Application {
         fileMenuExit   .setOnAction((e) -> { actionExit();         });
         
         editMenuNewBill.setOnAction((e) -> { 
-            tableView  .getItems().add(new Bill());
+            tableView.getItems().add(new Bill());
         });
 
         editMenuRemoveSelected.setOnAction((e) -> {
@@ -485,13 +485,22 @@ public class App extends Application {
         }
         
         if (fileSaved && !undoStack.isEmpty()) {
-            final AbstractEditEvent topEvent = 
-                    undoStack.get(undoStack.size() - 1);
+            // Unmark all events as before or after a save.
+            for (final AbstractEditEvent event : undoStack) {
+                event.setEventBeforeSave(false);
+                event.setEventAfterSave(false);
+            }
             
-            topEvent.setEventBeforeSave(true);
+            if (activeEvents > 0) {
+                undoStack.get(activeEvents - 1).setEventBeforeSave(true);
+            }
+            
+            if (activeEvents < undoStack.size()) {
+                undoStack.get(activeEvents).setEventAfterSave(true);
+            }
+            
             lastActionWasSave = true;
         }
-        
     }
     
     private void actionSaveAs() {
@@ -996,7 +1005,7 @@ public class App extends Application {
     
     private void setExpirationDateColumnCellFactory() {
         tableColumnExpirationDate.setCellFactory(
-                new ExpirationDateCellFactory());
+                new ExpirationDateCellFactory(tableView.getItems()));
     }
     
     private void setPaymentDateColumnCellFactory() {
