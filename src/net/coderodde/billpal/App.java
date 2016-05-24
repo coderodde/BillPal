@@ -606,14 +606,6 @@ public class App extends Application {
         System.exit(0);
     }
     
-    private boolean askConfirmation(String question) {
-        Alert alert = new Alert(AlertType.CONFIRMATION, 
-                                question, 
-                                ButtonType.OK, 
-                                ButtonType.CANCEL);
-        return alert.showAndWait().get() == ButtonType.OK;
-    }
-    
     private ButtonType askYesNoCancel(String question) {
         Alert alert = new Alert(AlertType.CONFIRMATION,
                                 question,

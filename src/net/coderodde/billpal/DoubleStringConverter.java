@@ -1,5 +1,6 @@
 package net.coderodde.billpal;
 
+import java.util.Arrays;
 import javafx.util.StringConverter;
 
 /**
@@ -17,7 +18,11 @@ public class DoubleStringConverter extends StringConverter<Double> {
             return "0.0";
         }
         
-        return object.toString();
+        final String objectAsString = object.toString();
+        final String[] parts = objectAsString.split("\\.");
+        final int decimals = Math.max(2, parts[1].length());
+        
+        return String.format("%." + decimals + "f", object);
     }
 
     @Override
