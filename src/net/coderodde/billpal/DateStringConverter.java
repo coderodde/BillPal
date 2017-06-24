@@ -68,6 +68,7 @@ public class DateStringConverter extends StringConverter<Date> {
     
     private String todayToString() {
         Calendar cal = Calendar.getInstance();
+        System.out.println("yeah");
         return new StringBuilder(20)
                 .append(cal.get(Calendar.YEAR)).append(".")
                 .append(cal.get(Calendar.MONTH) + 1).append(".")

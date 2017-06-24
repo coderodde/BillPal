@@ -6,3 +6,5 @@ dist/bundles/BillPal.app
 dist/bundles/BillPal.html
 dist/bundles/BillPal.jnlp
 dist/bundles/BillPal.jar
+/nbproject/private/
+/dist/

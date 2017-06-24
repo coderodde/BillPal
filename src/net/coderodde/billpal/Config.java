@@ -18,5 +18,6 @@ public class Config {
     /**
      * The format for all the {@link Date}s in the BillPal.
      */
-    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat();
+    public static final SimpleDateFormat DATE_FORMAT = 
+            new SimpleDateFormat(DATE_FORMAT_STRING);
 }
